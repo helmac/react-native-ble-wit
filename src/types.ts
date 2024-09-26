@@ -2,7 +2,7 @@
  * android states: https://developer.android.com/reference/android/bluetooth/BluetoothAdapter#EXTRA_STATE
  * ios states: https://developer.apple.com/documentation/corebluetooth/cbcentralmanagerstate
  * */
-export enum BleState {
+export enum WitBleState {
   /**
    * [iOS only]
    */
@@ -98,16 +98,16 @@ export interface ScanOptions {
    * This will only works if a ScanFilter is active. Otherwise, may not retrieve any result.
    * See https://developer.android.com/reference/android/bluetooth/le/ScanSettings#MATCH_NUM_FEW_ADVERTISEMENT.
    * */
-  numberOfMatches?: BleScanMatchCount;
-  matchMode?: BleScanMatchMode;
+  numberOfMatches?: WitBleScanMatchCount;
+  matchMode?: WitBleScanMatchMode;
   /**
    * This will only works if a ScanFilter is active. Otherwise, may not retrieve any result.
    * See https://developer.android.com/reference/android/bluetooth/le/ScanSettings#CALLBACK_TYPE_FIRST_MATCH.
    * Also read [this issue](https://github.com/dariuszseweryn/RxAndroidBle/issues/561#issuecomment-532295346) for a deeper understanding
    * of the very brittle stability of ScanSettings on android.
    * */
-  callbackType?: BleScanCallbackType;
-  scanMode?: BleScanMode;
+  callbackType?: WitBleScanCallbackType;
+  scanMode?: WitBleScanMode;
   /**
    * This is supposed to push results after a certain delay.
    * In practice it is tricky, use with caution.
@@ -170,7 +170,7 @@ export interface CompanionScanOptions {
 /**
  * [android only]
  */
-export enum BleScanMode {
+export enum WitBleScanMode {
   Opportunistic = -1,
   LowPower = 0,
   Balanced = 1,
@@ -180,7 +180,7 @@ export enum BleScanMode {
 /**
  * [android only]
  */
-export enum BleScanMatchMode {
+export enum WitBleScanMatchMode {
   Aggressive = 1,
   Sticky = 2,
 }
@@ -188,7 +188,7 @@ export enum BleScanMatchMode {
 /**
  * [android only]
  */
-export enum BleScanCallbackType {
+export enum WitBleScanCallbackType {
   AllMatches = 1,
   FirstMatch = 2,
   MatchLost = 4,
@@ -197,7 +197,7 @@ export enum BleScanCallbackType {
 /**
  * [android only]
  */
-export enum BleScanMatchCount {
+export enum WitBleScanMatchCount {
   OneAdvertisement = 1,
   FewAdvertisements = 2,
   MaxAdvertisements = 3,
@@ -278,7 +278,7 @@ export enum PeripheralDataKey {
 
 export type PeripheralData = { [key: string]: string | undefined };
 
-export enum BleEventType {
+export enum WitBleEventType {
   WitBleManagerDidUpdateState = "WitBleManagerDidUpdateState",
   WitBleManagerStopScan = "WitBleManagerStopScan",
   WitBleManagerDiscoverPeripheral = "WitBleManagerDiscoverPeripheral",
@@ -299,7 +299,7 @@ export enum BleEventType {
   WitBleManagerDidUpdateNotificationStateFor = "WitBleManagerDidUpdateNotificationStateFor",
 }
 
-export interface BleStopScanEvent {
+export interface WitBleStopScanEvent {
   /**
    * [iOS only]
    */
@@ -307,10 +307,10 @@ export interface BleStopScanEvent {
 }
 
 export interface WitBleManagerDidUpdateStateEvent {
-  state: BleState;
+  state: WitBleState;
 }
 
-export interface BleConnectPeripheralEvent {
+export interface WitBleConnectPeripheralEvent {
   /**
    * peripheral id
    */
@@ -321,14 +321,14 @@ export interface BleConnectPeripheralEvent {
   readonly status?: number;
 }
 
-export type BleDiscoverPeripheralEvent = Peripheral;
+export type WitBleDiscoverPeripheralEvent = Peripheral;
 
 /**
  * [Android only]
  */
-export type BleBondedPeripheralEvent = Peripheral;
+export type WitBleBondedPeripheralEvent = Peripheral;
 
-export interface BleDisconnectPeripheralEvent {
+export interface WitBleDisconnectPeripheralEvent {
   /**
    * peripheral id
    */

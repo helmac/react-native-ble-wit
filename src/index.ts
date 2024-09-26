@@ -1,10 +1,10 @@
 import { NativeEventEmitter, NativeModules } from "react-native";
 import {
-  BleScanCallbackType,
-  BleScanMatchCount,
-  BleScanMatchMode,
-  BleScanMode,
-  BleState,
+  WitBleScanCallbackType,
+  WitBleScanMatchCount,
+  WitBleScanMatchMode,
+  WitBleScanMode,
+  WitBleState,
   ConnectOptions,
   ConnectionPriority,
   CompanionScanOptions,
@@ -414,8 +414,8 @@ class WitBleManager extends NativeEventEmitter {
   }
 
   checkState() {
-    return new Promise<BleState>((fulfill, _) => {
-      witBleManager.checkState((state: BleState) => {
+    return new Promise<WitBleState>((fulfill, _) => {
+      witBleManager.checkState((state: WitBleState) => {
         fulfill(state);
       });
     });
@@ -458,24 +458,25 @@ class WitBleManager extends NativeEventEmitter {
       // (ANDROID) Match as many advertisement per filter as hw could allow
       // depends on current capability and availability of the resources in hw.
       if (scanningOptions.numberOfMatches == null) {
-        scanningOptions.numberOfMatches = BleScanMatchCount.MaxAdvertisements;
+        scanningOptions.numberOfMatches =
+          WitBleScanMatchCount.MaxAdvertisements;
       }
 
       // (ANDROID) Defaults to MATCH_MODE_AGGRESSIVE
       if (scanningOptions.matchMode == null) {
-        scanningOptions.matchMode = BleScanMatchMode.Aggressive;
+        scanningOptions.matchMode = WitBleScanMatchMode.Aggressive;
       }
 
       // (ANDROID) Defaults to SCAN_MODE_LOW_POWER
       if (scanningOptions.scanMode == null) {
-        scanningOptions.scanMode = BleScanMode.LowPower;
+        scanningOptions.scanMode = WitBleScanMode.LowPower;
       }
 
       // (ANDROID) Defaults to CALLBACK_TYPE_ALL_MATCHES
       // WARN: sometimes, setting a scanSetting instead of leaving it untouched might result in unexpected behaviors.
       // https://github.com/dariuszseweryn/RxAndroidBle/issues/462
       if (scanningOptions.callbackType == null) {
-        scanningOptions.callbackType = BleScanCallbackType.AllMatches;
+        scanningOptions.callbackType = WitBleScanCallbackType.AllMatches;
       }
 
       // (ANDROID) Defaults to 0ms (report results immediately).
