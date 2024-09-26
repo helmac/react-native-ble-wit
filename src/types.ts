@@ -278,6 +278,10 @@ export enum PeripheralDataKey {
 
 export type PeripheralData = { [key: string]: string | undefined };
 
+export type DeviceData = {
+  [key: string]: string | undefined;
+};
+
 export enum WitBleEventType {
   WitBleManagerDidUpdateState = "WitBleManagerDidUpdateState",
   WitBleManagerStopScan = "WitBleManagerStopScan",
