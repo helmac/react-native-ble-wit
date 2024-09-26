@@ -1,0 +1,20 @@
+title: react-native-ble-wit
+email: rodriguez.luis@helmac.ca
+description: >-
+  react-native-ble-wit documentation
+baseurl: "/react-native-ble-wit"
+url: "https://helmac.github.io"
+
+theme: just-the-docs
+
+color_scheme: dark
+
+aux_links:
+  "Project on GitHub":
+    - "//github.com/helmac/react-native-ble-wit"
+
+nav_external_links:
+  - title: Project on GitHub
+    url: https://github.com/helmac/react-native-ble-wit
+    hide_icon: false
+    opens_in_new_tab: false

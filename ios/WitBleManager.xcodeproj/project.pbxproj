@@ -1,0 +1,854 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A918B68D2B162CF2006EC956 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A918B68C2B162CF2006EC956 /* Helper.swift */; };
+		F99334A92C95F58200E35DC9 /* DeviceModelError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99334802C95F58200E35DC9 /* DeviceModelError.swift */; };
+		F99334AA2C95F58200E35DC9 /* BluetoothBLE.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99334822C95F58200E35DC9 /* BluetoothBLE.swift */; };
+		F99334AB2C95F58200E35DC9 /* IBluetoothEventObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99334832C95F58200E35DC9 /* IBluetoothEventObserver.swift */; };
+		F99334AC2C95F58200E35DC9 /* WitBluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99334842C95F58200E35DC9 /* WitBluetoothManager.swift */; };
+		F99334AD2C95F58200E35DC9 /* WitCoreConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99334862C95F58200E35DC9 /* WitCoreConnector.swift */; };
+		F99334AE2C95F58200E35DC9 /* WitSensorKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99334892C95F58200E35DC9 /* WitSensorKey.swift */; };
+		F99334AF2C95F58200E35DC9 /* IDataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F993348B2C95F58200E35DC9 /* IDataProcessor.swift */; };
+		F99334B02C95F58200E35DC9 /* BWT901BLE5_0DataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F993348D2C95F58200E35DC9 /* BWT901BLE5_0DataProcessor.swift */; };
+		F99334B12C95F58200E35DC9 /* IProtocolResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99334902C95F58200E35DC9 /* IProtocolResolver.swift */; };
+		F99334B22C95F58200E35DC9 /* BWT901BLE5_0ProtocolResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99334922C95F58200E35DC9 /* BWT901BLE5_0ProtocolResolver.swift */; };
+		F99334B32C95F58200E35DC9 /* IKeyUpdateObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99334962C95F58200E35DC9 /* IKeyUpdateObserver.swift */; };
+		F99334B42C95F58200E35DC9 /* IListenKeyUpdateObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99334972C95F58200E35DC9 /* IListenKeyUpdateObserver.swift */; };
+		F99334B52C95F58200E35DC9 /* CompareObjectHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99334992C95F58200E35DC9 /* CompareObjectHelper.swift */; };
+		F99334B62C95F58200E35DC9 /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F993349A2C95F58200E35DC9 /* DataHelper.swift */; };
+		F99334B72C95F58200E35DC9 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F993349B2C95F58200E35DC9 /* DateHelper.swift */; };
+		F99334B82C95F58200E35DC9 /* DipSensorMagHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F993349C2C95F58200E35DC9 /* DipSensorMagHelper.swift */; };
+		F99334B92C95F58200E35DC9 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F993349D2C95F58200E35DC9 /* StringUtils.swift */; };
+		F99334BA2C95F58200E35DC9 /* SyncDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F993349E2C95F58200E35DC9 /* SyncDictionary.swift */; };
+		F99334BB2C95F58200E35DC9 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99334A02C95F58200E35DC9 /* DeviceModel.swift */; };
+		F99334BC2C95F58200E35DC9 /* Bwt901ble.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99334A22C95F58200E35DC9 /* Bwt901ble.swift */; };
+		F99334BD2C95F58200E35DC9 /* IBwt901bleRecordObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99334A32C95F58200E35DC9 /* IBwt901bleRecordObserver.swift */; };
+		F99334BE2C95F58200E35DC9 /* WitSDK.docc in Sources */ = {isa = PBXBuildFile; fileRef = F99334A72C95F58200E35DC9 /* WitSDK.docc */; };
+		F99334E22C95FA4E00E35DC9 /* WitBleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F99334E02C95FA4E00E35DC9 /* WitBleManager.m */; };
+		F99334E32C95FA4E00E35DC9 /* WitBleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99334E12C95FA4E00E35DC9 /* WitBleManager.swift */; };
+		F99334E52C962B9600E35DC9 /* WitSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F99334C42C95F73800E35DC9 /* WitSDK.framework */; };
+		F99334E92C962ED100E35DC9 /* DeviceModelError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99334802C95F58200E35DC9 /* DeviceModelError.swift */; };
+		F99334EA2C962ED100E35DC9 /* BluetoothBLE.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99334822C95F58200E35DC9 /* BluetoothBLE.swift */; };
+		F99334EB2C962ED100E35DC9 /* IBluetoothEventObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99334832C95F58200E35DC9 /* IBluetoothEventObserver.swift */; };
+		F99334EC2C962ED100E35DC9 /* WitBluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99334842C95F58200E35DC9 /* WitBluetoothManager.swift */; };
+		F99334ED2C962ED100E35DC9 /* WitCoreConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99334862C95F58200E35DC9 /* WitCoreConnector.swift */; };
+		F99334EE2C962ED100E35DC9 /* WitSensorKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99334892C95F58200E35DC9 /* WitSensorKey.swift */; };
+		F99334EF2C962ED100E35DC9 /* IDataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F993348B2C95F58200E35DC9 /* IDataProcessor.swift */; };
+		F99334F02C962ED100E35DC9 /* BWT901BLE5_0DataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F993348D2C95F58200E35DC9 /* BWT901BLE5_0DataProcessor.swift */; };
+		F99334F12C962ED100E35DC9 /* IProtocolResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99334902C95F58200E35DC9 /* IProtocolResolver.swift */; };
+		F99334F22C962ED100E35DC9 /* BWT901BLE5_0ProtocolResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99334922C95F58200E35DC9 /* BWT901BLE5_0ProtocolResolver.swift */; };
+		F99334F32C962ED100E35DC9 /* IKeyUpdateObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99334962C95F58200E35DC9 /* IKeyUpdateObserver.swift */; };
+		F99334F42C962ED100E35DC9 /* IListenKeyUpdateObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99334972C95F58200E35DC9 /* IListenKeyUpdateObserver.swift */; };
+		F99334F52C962ED100E35DC9 /* CompareObjectHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99334992C95F58200E35DC9 /* CompareObjectHelper.swift */; };
+		F99334F62C962ED100E35DC9 /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F993349A2C95F58200E35DC9 /* DataHelper.swift */; };
+		F99334F72C962ED100E35DC9 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F993349B2C95F58200E35DC9 /* DateHelper.swift */; };
+		F99334F82C962ED100E35DC9 /* DipSensorMagHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F993349C2C95F58200E35DC9 /* DipSensorMagHelper.swift */; };
+		F99334F92C962ED100E35DC9 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F993349D2C95F58200E35DC9 /* StringUtils.swift */; };
+		F99334FA2C962ED100E35DC9 /* SyncDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F993349E2C95F58200E35DC9 /* SyncDictionary.swift */; };
+		F99334FB2C962ED100E35DC9 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99334A02C95F58200E35DC9 /* DeviceModel.swift */; };
+		F99334FC2C962ED100E35DC9 /* Bwt901ble.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99334A22C95F58200E35DC9 /* Bwt901ble.swift */; };
+		F99334FD2C962ED100E35DC9 /* IBwt901bleRecordObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99334A32C95F58200E35DC9 /* IBwt901bleRecordObserver.swift */; };
+		F99334FE2C962ED100E35DC9 /* WitSDK.docc in Sources */ = {isa = PBXBuildFile; fileRef = F99334A72C95F58200E35DC9 /* WitSDK.docc */; };
+		F99335002C966D5500E35DC9 /* WitSDK.podspec in Resources */ = {isa = PBXBuildFile; fileRef = F99334FF2C966D5500E35DC9 /* WitSDK.podspec */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F99334E72C962C1E00E35DC9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 58B511D31A9E6C8500147676 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F99334C32C95F73800E35DC9;
+			remoteInfo = WitSDK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		58B511D91A9E6C8500147676 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		134814201AA4EA6300B7C361 /* libBleManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBleManager.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A918B68C2B162CF2006EC956 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		F99334802C95F58200E35DC9 /* DeviceModelError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceModelError.swift; sourceTree = "<group>"; };
+		F99334822C95F58200E35DC9 /* BluetoothBLE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothBLE.swift; sourceTree = "<group>"; };
+		F99334832C95F58200E35DC9 /* IBluetoothEventObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBluetoothEventObserver.swift; sourceTree = "<group>"; };
+		F99334842C95F58200E35DC9 /* WitBluetoothManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WitBluetoothManager.swift; sourceTree = "<group>"; };
+		F99334862C95F58200E35DC9 /* WitCoreConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WitCoreConnector.swift; sourceTree = "<group>"; };
+		F99334892C95F58200E35DC9 /* WitSensorKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WitSensorKey.swift; sourceTree = "<group>"; };
+		F993348B2C95F58200E35DC9 /* IDataProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDataProcessor.swift; sourceTree = "<group>"; };
+		F993348D2C95F58200E35DC9 /* BWT901BLE5_0DataProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWT901BLE5_0DataProcessor.swift; sourceTree = "<group>"; };
+		F99334902C95F58200E35DC9 /* IProtocolResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IProtocolResolver.swift; sourceTree = "<group>"; };
+		F99334922C95F58200E35DC9 /* BWT901BLE5_0ProtocolResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWT901BLE5_0ProtocolResolver.swift; sourceTree = "<group>"; };
+		F99334962C95F58200E35DC9 /* IKeyUpdateObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IKeyUpdateObserver.swift; sourceTree = "<group>"; };
+		F99334972C95F58200E35DC9 /* IListenKeyUpdateObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IListenKeyUpdateObserver.swift; sourceTree = "<group>"; };
+		F99334992C95F58200E35DC9 /* CompareObjectHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompareObjectHelper.swift; sourceTree = "<group>"; };
+		F993349A2C95F58200E35DC9 /* DataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHelper.swift; sourceTree = "<group>"; };
+		F993349B2C95F58200E35DC9 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		F993349C2C95F58200E35DC9 /* DipSensorMagHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DipSensorMagHelper.swift; sourceTree = "<group>"; };
+		F993349D2C95F58200E35DC9 /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
+		F993349E2C95F58200E35DC9 /* SyncDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncDictionary.swift; sourceTree = "<group>"; };
+		F99334A02C95F58200E35DC9 /* DeviceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
+		F99334A22C95F58200E35DC9 /* Bwt901ble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bwt901ble.swift; sourceTree = "<group>"; };
+		F99334A32C95F58200E35DC9 /* IBwt901bleRecordObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBwt901bleRecordObserver.swift; sourceTree = "<group>"; };
+		F99334A72C95F58200E35DC9 /* WitSDK.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = WitSDK.docc; sourceTree = "<group>"; };
+		F99334C42C95F73800E35DC9 /* WitSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WitSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F99334DE2C95FA4E00E35DC9 /* WitBleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WitBleManager.h; sourceTree = "<group>"; };
+		F99334DF2C95FA4E00E35DC9 /* WitBleManager-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WitBleManager-Bridging-Header.h"; sourceTree = "<group>"; };
+		F99334E02C95FA4E00E35DC9 /* WitBleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WitBleManager.m; sourceTree = "<group>"; };
+		F99334E12C95FA4E00E35DC9 /* WitBleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WitBleManager.swift; sourceTree = "<group>"; };
+		F99334FF2C966D5500E35DC9 /* WitSDK.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WitSDK.podspec; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		58B511D81A9E6C8500147676 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F99334E52C962B9600E35DC9 /* WitSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F99334C12C95F73800E35DC9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		134814211AA4EA7D00B7C361 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				134814201AA4EA6300B7C361 /* libBleManager.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		58B511D21A9E6C8500147676 = {
+			isa = PBXGroup;
+			children = (
+				F99334A82C95F58200E35DC9 /* WitSDK */,
+				A908F1891CEEFE0F00BE1488 /* BleManager */,
+				F99334C52C95F73800E35DC9 /* WitSDK */,
+				134814211AA4EA7D00B7C361 /* Products */,
+				F99334C42C95F73800E35DC9 /* WitSDK.framework */,
+			);
+			sourceTree = "<group>";
+		};
+		A908F1891CEEFE0F00BE1488 /* BleManager */ = {
+			isa = PBXGroup;
+			children = (
+				F99334DF2C95FA4E00E35DC9 /* WitBleManager-Bridging-Header.h */,
+				F99334DE2C95FA4E00E35DC9 /* WitBleManager.h */,
+				F99334E02C95FA4E00E35DC9 /* WitBleManager.m */,
+				F99334E12C95FA4E00E35DC9 /* WitBleManager.swift */,
+				A918B68C2B162CF2006EC956 /* Helper.swift */,
+			);
+			name = BleManager;
+			sourceTree = "<group>";
+		};
+		F99334812C95F58200E35DC9 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				F99334802C95F58200E35DC9 /* DeviceModelError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		F99334852C95F58200E35DC9 /* Modular */ = {
+			isa = PBXGroup;
+			children = (
+				F99334822C95F58200E35DC9 /* BluetoothBLE.swift */,
+				F99334832C95F58200E35DC9 /* IBluetoothEventObserver.swift */,
+				F99334842C95F58200E35DC9 /* WitBluetoothManager.swift */,
+			);
+			path = Modular;
+			sourceTree = "<group>";
+		};
+		F99334872C95F58200E35DC9 /* Roles */ = {
+			isa = PBXGroup;
+			children = (
+				F99334862C95F58200E35DC9 /* WitCoreConnector.swift */,
+			);
+			path = Roles;
+			sourceTree = "<group>";
+		};
+		F99334882C95F58200E35DC9 /* Connector */ = {
+			isa = PBXGroup;
+			children = (
+				F99334852C95F58200E35DC9 /* Modular */,
+				F99334872C95F58200E35DC9 /* Roles */,
+			);
+			path = Connector;
+			sourceTree = "<group>";
+		};
+		F993348A2C95F58200E35DC9 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				F99334892C95F58200E35DC9 /* WitSensorKey.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		F993348C2C95F58200E35DC9 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				F993348B2C95F58200E35DC9 /* IDataProcessor.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		F993348E2C95F58200E35DC9 /* Roles */ = {
+			isa = PBXGroup;
+			children = (
+				F993348D2C95F58200E35DC9 /* BWT901BLE5_0DataProcessor.swift */,
+			);
+			path = Roles;
+			sourceTree = "<group>";
+		};
+		F993348F2C95F58200E35DC9 /* Processor */ = {
+			isa = PBXGroup;
+			children = (
+				F993348A2C95F58200E35DC9 /* Constants */,
+				F993348C2C95F58200E35DC9 /* Protocol */,
+				F993348E2C95F58200E35DC9 /* Roles */,
+			);
+			path = Processor;
+			sourceTree = "<group>";
+		};
+		F99334912C95F58200E35DC9 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				F99334902C95F58200E35DC9 /* IProtocolResolver.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		F99334932C95F58200E35DC9 /* Roles */ = {
+			isa = PBXGroup;
+			children = (
+				F99334922C95F58200E35DC9 /* BWT901BLE5_0ProtocolResolver.swift */,
+			);
+			path = Roles;
+			sourceTree = "<group>";
+		};
+		F99334942C95F58200E35DC9 /* Resolver */ = {
+			isa = PBXGroup;
+			children = (
+				F99334912C95F58200E35DC9 /* Protocol */,
+				F99334932C95F58200E35DC9 /* Roles */,
+			);
+			path = Resolver;
+			sourceTree = "<group>";
+		};
+		F99334952C95F58200E35DC9 /* Modular */ = {
+			isa = PBXGroup;
+			children = (
+				F99334882C95F58200E35DC9 /* Connector */,
+				F993348F2C95F58200E35DC9 /* Processor */,
+				F99334942C95F58200E35DC9 /* Resolver */,
+			);
+			path = Modular;
+			sourceTree = "<group>";
+		};
+		F99334982C95F58200E35DC9 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				F99334962C95F58200E35DC9 /* IKeyUpdateObserver.swift */,
+				F99334972C95F58200E35DC9 /* IListenKeyUpdateObserver.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		F993349F2C95F58200E35DC9 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F99334992C95F58200E35DC9 /* CompareObjectHelper.swift */,
+				F993349A2C95F58200E35DC9 /* DataHelper.swift */,
+				F993349B2C95F58200E35DC9 /* DateHelper.swift */,
+				F993349C2C95F58200E35DC9 /* DipSensorMagHelper.swift */,
+				F993349D2C95F58200E35DC9 /* StringUtils.swift */,
+				F993349E2C95F58200E35DC9 /* SyncDictionary.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		F99334A12C95F58200E35DC9 /* Sensor */ = {
+			isa = PBXGroup;
+			children = (
+				F99334812C95F58200E35DC9 /* Errors */,
+				F99334952C95F58200E35DC9 /* Modular */,
+				F99334982C95F58200E35DC9 /* Protocol */,
+				F993349F2C95F58200E35DC9 /* Utils */,
+				F99334A02C95F58200E35DC9 /* DeviceModel.swift */,
+			);
+			path = Sensor;
+			sourceTree = "<group>";
+		};
+		F99334A42C95F58200E35DC9 /* Ble5 */ = {
+			isa = PBXGroup;
+			children = (
+				F99334A22C95F58200E35DC9 /* Bwt901ble.swift */,
+				F99334A32C95F58200E35DC9 /* IBwt901bleRecordObserver.swift */,
+			);
+			path = Ble5;
+			sourceTree = "<group>";
+		};
+		F99334A52C95F58200E35DC9 /* Modular */ = {
+			isa = PBXGroup;
+			children = (
+				F99334A42C95F58200E35DC9 /* Ble5 */,
+			);
+			path = Modular;
+			sourceTree = "<group>";
+		};
+		F99334A62C95F58200E35DC9 /* WitSensorApi */ = {
+			isa = PBXGroup;
+			children = (
+				F99334A52C95F58200E35DC9 /* Modular */,
+			);
+			path = WitSensorApi;
+			sourceTree = "<group>";
+		};
+		F99334A82C95F58200E35DC9 /* WitSDK */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WitSDK;
+			sourceTree = "<group>";
+		};
+		F99334C52C95F73800E35DC9 /* WitSDK */ = {
+			isa = PBXGroup;
+			children = (
+				F99334FF2C966D5500E35DC9 /* WitSDK.podspec */,
+				F99334A12C95F58200E35DC9 /* Sensor */,
+				F99334A62C95F58200E35DC9 /* WitSensorApi */,
+				F99334A72C95F58200E35DC9 /* WitSDK.docc */,
+			);
+			path = WitSDK;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		F99334BF2C95F73800E35DC9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		58B511DA1A9E6C8500147676 /* WitBleManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "WitBleManager" */;
+			buildPhases = (
+				58B511D71A9E6C8500147676 /* Sources */,
+				58B511D81A9E6C8500147676 /* Frameworks */,
+				58B511D91A9E6C8500147676 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F99334E82C962C1E00E35DC9 /* PBXTargetDependency */,
+			);
+			name = WitBleManager;
+			productName = RCTDataManager;
+			productReference = 134814201AA4EA6300B7C361 /* libBleManager.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		F99334C32C95F73800E35DC9 /* WitSDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F99334D52C95F73800E35DC9 /* Build configuration list for PBXNativeTarget "WitSDK" */;
+			buildPhases = (
+				F99334BF2C95F73800E35DC9 /* Headers */,
+				F99334C02C95F73800E35DC9 /* Sources */,
+				F99334C12C95F73800E35DC9 /* Frameworks */,
+				F99334C22C95F73800E35DC9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WitSDK;
+			productName = WitSDK;
+			productReference = F99334C42C95F73800E35DC9 /* WitSDK.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		58B511D31A9E6C8500147676 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1540;
+				ORGANIZATIONNAME = Facebook;
+				TargetAttributes = {
+					58B511DA1A9E6C8500147676 = {
+						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 1500;
+					};
+					F99334C32C95F73800E35DC9 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = 58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "WitBleManager" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 58B511D21A9E6C8500147676;
+			productRefGroup = 58B511D21A9E6C8500147676;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				58B511DA1A9E6C8500147676 /* WitBleManager */,
+				F99334C32C95F73800E35DC9 /* WitSDK */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F99334C22C95F73800E35DC9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F99335002C966D5500E35DC9 /* WitSDK.podspec in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		58B511D71A9E6C8500147676 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F99334AC2C95F58200E35DC9 /* WitBluetoothManager.swift in Sources */,
+				F99334BE2C95F58200E35DC9 /* WitSDK.docc in Sources */,
+				F99334AD2C95F58200E35DC9 /* WitCoreConnector.swift in Sources */,
+				F99334B52C95F58200E35DC9 /* CompareObjectHelper.swift in Sources */,
+				F99334E22C95FA4E00E35DC9 /* WitBleManager.m in Sources */,
+				F99334B22C95F58200E35DC9 /* BWT901BLE5_0ProtocolResolver.swift in Sources */,
+				F99334B02C95F58200E35DC9 /* BWT901BLE5_0DataProcessor.swift in Sources */,
+				F99334A92C95F58200E35DC9 /* DeviceModelError.swift in Sources */,
+				F99334AB2C95F58200E35DC9 /* IBluetoothEventObserver.swift in Sources */,
+				F99334B32C95F58200E35DC9 /* IKeyUpdateObserver.swift in Sources */,
+				F99334AF2C95F58200E35DC9 /* IDataProcessor.swift in Sources */,
+				F99334B42C95F58200E35DC9 /* IListenKeyUpdateObserver.swift in Sources */,
+				F99334B82C95F58200E35DC9 /* DipSensorMagHelper.swift in Sources */,
+				F99334BD2C95F58200E35DC9 /* IBwt901bleRecordObserver.swift in Sources */,
+				F99334BC2C95F58200E35DC9 /* Bwt901ble.swift in Sources */,
+				F99334AE2C95F58200E35DC9 /* WitSensorKey.swift in Sources */,
+				F99334B62C95F58200E35DC9 /* DataHelper.swift in Sources */,
+				F99334AA2C95F58200E35DC9 /* BluetoothBLE.swift in Sources */,
+				F99334E32C95FA4E00E35DC9 /* WitBleManager.swift in Sources */,
+				F99334B92C95F58200E35DC9 /* StringUtils.swift in Sources */,
+				F99334BA2C95F58200E35DC9 /* SyncDictionary.swift in Sources */,
+				F99334B72C95F58200E35DC9 /* DateHelper.swift in Sources */,
+				F99334BB2C95F58200E35DC9 /* DeviceModel.swift in Sources */,
+				A918B68D2B162CF2006EC956 /* Helper.swift in Sources */,
+				F99334B12C95F58200E35DC9 /* IProtocolResolver.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F99334C02C95F73800E35DC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F99334E92C962ED100E35DC9 /* DeviceModelError.swift in Sources */,
+				F99334EA2C962ED100E35DC9 /* BluetoothBLE.swift in Sources */,
+				F99334EB2C962ED100E35DC9 /* IBluetoothEventObserver.swift in Sources */,
+				F99334EC2C962ED100E35DC9 /* WitBluetoothManager.swift in Sources */,
+				F99334ED2C962ED100E35DC9 /* WitCoreConnector.swift in Sources */,
+				F99334EE2C962ED100E35DC9 /* WitSensorKey.swift in Sources */,
+				F99334EF2C962ED100E35DC9 /* IDataProcessor.swift in Sources */,
+				F99334F02C962ED100E35DC9 /* BWT901BLE5_0DataProcessor.swift in Sources */,
+				F99334F12C962ED100E35DC9 /* IProtocolResolver.swift in Sources */,
+				F99334F22C962ED100E35DC9 /* BWT901BLE5_0ProtocolResolver.swift in Sources */,
+				F99334F32C962ED100E35DC9 /* IKeyUpdateObserver.swift in Sources */,
+				F99334F42C962ED100E35DC9 /* IListenKeyUpdateObserver.swift in Sources */,
+				F99334F52C962ED100E35DC9 /* CompareObjectHelper.swift in Sources */,
+				F99334F62C962ED100E35DC9 /* DataHelper.swift in Sources */,
+				F99334F72C962ED100E35DC9 /* DateHelper.swift in Sources */,
+				F99334F82C962ED100E35DC9 /* DipSensorMagHelper.swift in Sources */,
+				F99334F92C962ED100E35DC9 /* StringUtils.swift in Sources */,
+				F99334FA2C962ED100E35DC9 /* SyncDictionary.swift in Sources */,
+				F99334FB2C962ED100E35DC9 /* DeviceModel.swift in Sources */,
+				F99334FC2C962ED100E35DC9 /* Bwt901ble.swift in Sources */,
+				F99334FD2C962ED100E35DC9 /* IBwt901bleRecordObserver.swift in Sources */,
+				F99334FE2C962ED100E35DC9 /* WitSDK.docc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F99334E82C962C1E00E35DC9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F99334C32C95F73800E35DC9 /* WitSDK */;
+			targetProxy = F99334E72C962C1E00E35DC9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		58B511ED1A9E6C8500147676 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../react-native/React/**",
+					"$(SRCROOT)/../../react-native/React/**",
+					"$(SRCROOT)/../node_modules/react-native/React/**",
+				);
+				INSTALL_PATH = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_NAME = BleManager;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../react-native/React/**",
+					"$(SRCROOT)/../../react-native/React/**",
+					"$(SRCROOT)/node_modules/react-native/React/**",
+				);
+			};
+			name = Debug;
+		};
+		58B511EE1A9E6C8500147676 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../react-native/React/**",
+					"$(SRCROOT)/../../react-native/React/**",
+					"$(SRCROOT)/../node_modules/react-native/React/**",
+				);
+				INSTALL_PATH = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_NAME = BleManager;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				USER_HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../react-native/React/**",
+					"$(SRCROOT)/../../react-native/React/**",
+					"$(SRCROOT)/node_modules/react-native/React/**",
+				);
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		58B511F01A9E6C8500147676 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../../React/**",
+					"$(SRCROOT)/../../../react-native/React/**",
+					"$(SRCROOT)/../../node_modules/react-native/React/**",
+					"$(SRCROOT)/../node_modules/react-native/React/**",
+					"$(SRCROOT)/node_modules/react-native/React/**",
+					"$(SRCROOT)/../../../ios/Pods/Headers/Public/**",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = BleManager;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "WitBleManager-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		58B511F11A9E6C8500147676 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../../React/**",
+					"$(SRCROOT)/../../../react-native/React/**",
+					"$(SRCROOT)/../../node_modules/react-native/React/**",
+					"$(SRCROOT)/../node_modules/react-native/React/**",
+					"$(SRCROOT)/node_modules/react-native/React/**",
+					"$(SRCROOT)/../../../ios/Pods/Headers/Public/**",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = BleManager;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "WitBleManager-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		F99334D62C95F73800E35DC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 8JTLUGC38Q;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2024 Facebook. All rights reserved.";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.helmac.WitSDK;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F99334D72C95F73800E35DC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 8JTLUGC38Q;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2024 Facebook. All rights reserved.";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.helmac.WitSDK;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "WitBleManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58B511ED1A9E6C8500147676 /* Debug */,
+				58B511EE1A9E6C8500147676 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "WitBleManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58B511F01A9E6C8500147676 /* Debug */,
+				58B511F11A9E6C8500147676 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F99334D52C95F73800E35DC9 /* Build configuration list for PBXNativeTarget "WitSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F99334D62C95F73800E35DC9 /* Debug */,
+				F99334D72C95F73800E35DC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 58B511D31A9E6C8500147676 /* Project object */;
+}
