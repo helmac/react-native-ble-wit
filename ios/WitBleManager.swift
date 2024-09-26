@@ -1379,7 +1379,7 @@ class WitBleManager: RCTEventEmitter, CBCentralManagerDelegate, CBPeripheralDele
         if (error != nil){
             return
         }
-        
+                        
         for  characteristic in service.characteristics! {
             print("找到设备特征值UUID：\(characteristic.uuid.description)")
             switch characteristic.uuid.description.uppercased() {
@@ -1429,6 +1429,33 @@ class WitBleManager: RCTEventEmitter, CBCentralManagerDelegate, CBPeripheralDele
         
         if(error != nil){
             return
+        }
+        
+        let key = Helper.key(forPeripheral: peripheral, andCharacteristic: characteristic)
+        
+        if let error = error {
+            NSLog("Error \(characteristic.uuid) :\(error)")
+            invokeAndClearDictionary(&readCallbacks, withKey: key, usingParameters: [error.localizedDescription, NSNull()])
+            return
+        }
+        
+        if WitBleManager.verboseLogging, let value = characteristic.value {
+            NSLog("Read value [\(characteristic.uuid)]: \( value.hexadecimalString())")
+        }
+        
+        serialQueue.sync {
+            if readCallbacks[key] != nil {
+                invokeAndClearDictionary_THREAD_UNSAFE(&readCallbacks, withKey: key, usingParameters: [NSNull(), characteristic.value!.toArray()])
+            } else {
+                if hasListeners {
+                    sendEvent(withName: "WitBleManagerDidUpdateValueForCharacteristic", body: [
+                        "peripheral": peripheral.uuidAsString(),
+                        "characteristic": characteristic.uuid.uuidString.lowercased(),
+                        "service": characteristic.service!.uuid.uuidString.lowercased(),
+                        "value": characteristic.value!.toArray()
+                    ])
+                }
+            }
         }
         
         switch characteristic.uuid.uuidString.uppercased() {
