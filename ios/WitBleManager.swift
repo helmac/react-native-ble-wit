@@ -37,7 +37,6 @@ class WitBleManager: RCTEventEmitter, CBCentralManagerDelegate, CBPeripheralDele
     private var exactAdvertisingName: [String]
     
     static var verboseLogging = false
-    private var deviceDataObj: Dictionary<String, String?>;
     
     // 服务uuid
     var uuidService: Dictionary<String, String?>
@@ -50,6 +49,8 @@ class WitBleManager: RCTEventEmitter, CBCentralManagerDelegate, CBPeripheralDele
     
     //发送数据特征(连接到设备之后可以把需要用到的特征保存起来，方便使用)
     var sendCharacteristic: Dictionary<String, CBCharacteristic>
+
+    var bwt901bleRecordObserver: DeviceDataObserver?
     
     private override init() {
         peripherals = [:]
@@ -68,7 +69,6 @@ class WitBleManager: RCTEventEmitter, CBCentralManagerDelegate, CBPeripheralDele
         characteristicsLatches = [:]
         exactAdvertisingName = []
         connectedPeripherals = []
-        deviceDataObj = [:]
         uuidService = [:]
         uuidSend = [:]
         uuidRead = [:]
@@ -79,7 +79,7 @@ class WitBleManager: RCTEventEmitter, CBCentralManagerDelegate, CBPeripheralDele
         NSLog("WitBleManager created");
         
         WitBleManager.shared = self
-        
+        bwt901bleRecordObserver = DeviceDataObserver(manager: self)
         
         NotificationCenter.default.addObserver(self, selector: #selector(bridgeReloading), name: NSNotification.Name(rawValue: "RCTBridgeWillReloadNotification"), object: nil)
     }
@@ -87,7 +87,7 @@ class WitBleManager: RCTEventEmitter, CBCentralManagerDelegate, CBPeripheralDele
     @objc override static func requiresMainQueueSetup() -> Bool { return true }
     
     @objc override func supportedEvents() -> [String]! {
-        return ["WitBleManagerDidUpdateValueForCharacteristic", "WitBleManagerStopScan", "WitBleManagerDiscoverPeripheral", "WitBleManagerConnectPeripheral", "WitBleManagerDisconnectPeripheral", "WitBleManagerDidUpdateState", "WitBleManagerCentralManagerWillRestoreState", "WitBleManagerDidUpdateNotificationStateFor"]
+        return ["WitBleManagerDidUpdateValueForCharacteristic", "WitBleManagerDeviceDataOnRecord", "WitBleManagerStopScan", "WitBleManagerDiscoverPeripheral", "WitBleManagerConnectPeripheral", "WitBleManagerDisconnectPeripheral", "WitBleManagerDidUpdateState", "WitBleManagerCentralManagerWillRestoreState", "WitBleManagerDidUpdateNotificationStateFor"]
     }
     
     @objc override func startObserving() {
@@ -325,6 +325,13 @@ class WitBleManager: RCTEventEmitter, CBCentralManagerDelegate, CBPeripheralDele
     }
     
     
+    public func onRecord(_ bwt901ble: Bwt901ble) {
+        self.sendEvent(withName: "WitBleManagerDeviceDataOnRecord", body: [
+            "peripheral": bwt901ble.bluetoothBLE?.peripheral.uuidAsString() ?? "",
+            "deviceData": self.getDeviceData(bwt901ble.bluetoothBLE?.peripheral.uuidAsString() ?? ""),
+        ])
+    }
+    
     @objc func connect(_ peripheralUUID: String,
                        options: NSDictionary,
                        callback: @escaping RCTResponseSenderBlock) {
@@ -338,7 +345,9 @@ class WitBleManager: RCTEventEmitter, CBCentralManagerDelegate, CBPeripheralDele
             do {
                 try peripheral.bwt901ble?.openDevice()
 
-//                peripheral.bwt901ble?.registerListenKeyUpdateObserver(obj: self.deviceDataObj)
+                if (peripheral.bwt901ble != nil && self.bwt901bleRecordObserver != nil) {
+                    peripheral.bwt901ble?.registerListenKeyUpdateObserver(obj: self.bwt901bleRecordObserver!)
+                }
             }
             catch {
                 NSLog("Bwt901ble can't be open \(error)")
@@ -351,7 +360,7 @@ class WitBleManager: RCTEventEmitter, CBCentralManagerDelegate, CBPeripheralDele
                 let peripheralArray = manager?.retrievePeripherals(withIdentifiers: [uuid])
                 if let retrievedPeripheral = peripheralArray?.first {
                     serialQueue.sync {
-                        peripherals[retrievedPeripheral.uuidAsString()] = Peripheral(peripheral:retrievedPeripheral, sendCharacteristic: sendCharacteristic[retrievedPeripheral.uuidAsString()])
+                        peripherals[retrievedPeripheral.uuidAsString()] = Peripheral(peripheral:retrievedPeripheral, sendCharacteristic: sendCharacteristic[retrievedPeripheral.uuidAsString()], bwt901bleRecordObserver: self.bwt901bleRecordObserver!)
                     }
                     NSLog("Successfully retrieved and connecting to peripheral with UUID: \(peripheralUUID)")
                     
@@ -433,7 +442,7 @@ class WitBleManager: RCTEventEmitter, CBCentralManagerDelegate, CBPeripheralDele
         }
     }
     
-    func setData(_ peripheralUUID: String) {
+    func getDeviceData(_ peripheralUUID: String) -> [String:String?] {
         if let peripheral = peripherals[peripheralUUID], peripheral.instance.state == .connected {
             var s: [String:String?] = [:]
             s["version"] = peripheral.bwt901ble?.getDeviceData(WitSensorKey.VersionNumber)
@@ -453,9 +462,9 @@ class WitBleManager: RCTEventEmitter, CBCentralManagerDelegate, CBPeripheralDele
             s["Temperature"] = peripheral.bwt901ble?.getDeviceData(WitSensorKey.Temperature)
             NSLog("getData \(s)")
             
-            self.deviceDataObj = s
+            return s
         } else {
-            self.deviceDataObj = [:]
+            return [:]
         }
     }
     
@@ -464,8 +473,10 @@ class WitBleManager: RCTEventEmitter, CBCentralManagerDelegate, CBPeripheralDele
         NSLog("retrieveData")
         
         if let peripheral = peripherals[peripheralUUID], peripheral.instance.state == .connected {
-            NSLog("getData \(self.deviceDataObj)")
-            callback([NSNull(), self.deviceDataObj])
+            var deviceDataObj = getDeviceData(peripheralUUID)
+
+            NSLog("getData \(deviceDataObj)")
+            callback([NSNull(), deviceDataObj])
         } else {
             callback(["Peripheral not found or not connected"])
         }
@@ -583,7 +594,7 @@ class WitBleManager: RCTEventEmitter, CBCentralManagerDelegate, CBPeripheralDele
                     if let peripheral = peripherals[ph.uuidAsString()] {
                         connectedPeripherals.append(peripheral)
                     } else {
-                        peripherals[ph.uuidAsString()] = Peripheral(peripheral: ph, sendCharacteristic: sendCharacteristic[ph.uuidAsString()])
+                        peripherals[ph.uuidAsString()] = Peripheral(peripheral: ph, sendCharacteristic: sendCharacteristic[ph.uuidAsString()], bwt901bleRecordObserver: self.bwt901bleRecordObserver!)
                     }
                 }
             }
@@ -821,7 +832,7 @@ class WitBleManager: RCTEventEmitter, CBCentralManagerDelegate, CBPeripheralDele
             serialQueue.sync {
                 var data = [[String: Any]]()
                 for peripheral in restoredPeripherals {
-                    let p = Peripheral(peripheral:peripheral, sendCharacteristic: sendCharacteristic[peripheral.uuidAsString()])
+                    let p = Peripheral(peripheral:peripheral, sendCharacteristic: sendCharacteristic[peripheral.uuidAsString()], bwt901bleRecordObserver: self.bwt901bleRecordObserver!)
                     peripherals[peripheral.uuidAsString()] = p
                     data.append(p.advertisingInfo())
                     peripheral.delegate = self
@@ -953,7 +964,7 @@ class WitBleManager: RCTEventEmitter, CBCentralManagerDelegate, CBPeripheralDele
                 cp?.setRSSI(rssi)
                 cp?.setAdvertisementData(advertisementData)
             } else {
-                cp = Peripheral(peripheral:peripheral, rssi:rssi, advertisementData:advertisementData, sendCharacteristic: sendCharacteristic[peripheral.uuidAsString()])
+                cp = Peripheral(peripheral:peripheral, rssi:rssi, advertisementData:advertisementData, sendCharacteristic: sendCharacteristic[peripheral.uuidAsString()], bwt901bleRecordObserver: self.bwt901bleRecordObserver!)
                 peripherals[peripheral.uuidAsString()] = cp
             }
         }
@@ -1279,8 +1290,6 @@ class WitBleManager: RCTEventEmitter, CBCentralManagerDelegate, CBPeripheralDele
 //                if bytes != nil {
 //                    // 调用要接收数据的对象
 //                    findPeripheral(byUUID: peripheral.uuidAsString())?.invokeDataRecevied(data: bytes ?? [UInt8]())
-//                    self.setData(peripheral.uuidAsString())
-//                    NSLog("data -> ", self.deviceDataObj)
 //                }
 //                break
 //            default:
@@ -1430,7 +1439,29 @@ class WitBleManager: RCTEventEmitter, CBCentralManagerDelegate, CBPeripheralDele
         if(error != nil){
             return
         }
-        
+                
+        switch characteristic.uuid.uuidString.uppercased() {
+            
+        case self.uuidRead[peripheral.uuidAsString()]:
+//            // 打印收到数据的时间戳
+//            let dformatter = DateFormatter()
+//            dformatter.dateFormat = "yyyyMMdd-HH.mm.ss"
+//            let current = Date()
+//            let dateString = dformatter.string(from: current) + ".\((CLongLong(round(current.timeIntervalSince1970*1000)) % 1000))"
+//            print(dateString)
+            
+            // print("接收到了设备的数据: \(String(describing: characteristic.value?.dataToHex()))")
+            let bytes:[UInt8]? = characteristic.value?.dataToBytes()
+            if bytes != nil {
+                // 调用要接收数据的对象
+                findPeripheral(byUUID: peripheral.uuidAsString())?.invokeDataRecevied(data: bytes ?? [UInt8]())
+            }
+            break
+        default:
+            print("收到了其他数据特征数据: \(characteristic.uuid.uuidString)")
+            break
+        }
+
         let key = Helper.key(forPeripheral: peripheral, andCharacteristic: characteristic)
         
         if let error = error {
@@ -1452,34 +1483,11 @@ class WitBleManager: RCTEventEmitter, CBCentralManagerDelegate, CBPeripheralDele
                         "peripheral": peripheral.uuidAsString(),
                         "characteristic": characteristic.uuid.uuidString.lowercased(),
                         "service": characteristic.service!.uuid.uuidString.lowercased(),
-                        "value": characteristic.value!.toArray()
+                        "value": characteristic.value!.toArray(),
                     ])
                 }
             }
-        }
-        
-        switch characteristic.uuid.uuidString.uppercased() {
-            
-        case self.uuidRead[peripheral.uuidAsString()]:
-//            // 打印收到数据的时间戳
-//            let dformatter = DateFormatter()
-//            dformatter.dateFormat = "yyyyMMdd-HH.mm.ss"
-//            let current = Date()
-//            let dateString = dformatter.string(from: current) + ".\((CLongLong(round(current.timeIntervalSince1970*1000)) % 1000))"
-//            print(dateString)
-            
-            // print("接收到了设备的数据: \(String(describing: characteristic.value?.dataToHex()))")
-            let bytes:[UInt8]? = characteristic.value?.dataToBytes()
-            if bytes != nil {
-                // 调用要接收数据的对象
-                findPeripheral(byUUID: peripheral.uuidAsString())?.invokeDataRecevied(data: bytes ?? [UInt8]())
-                setData(peripheral.uuidAsString())
-            }
-            break
-        default:
-            print("收到了其他数据特征数据: \(characteristic.uuid.uuidString)")
-            break
-        }
+        }        
     }
     
     

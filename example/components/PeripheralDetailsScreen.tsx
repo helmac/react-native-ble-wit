@@ -50,8 +50,6 @@ const PeripheralDetailsScreen = ({route}: PeripheralDetailsProps) => {
   const peripheralData = route.params.peripheralData;
   const deviceData = route.params.deviceData;
   const [data, setData] = useState<DeviceData | null>(deviceData);
-  console.log('peripheralData:', JSON.stringify(peripheralData, null, 2));
-  console.log('deviceData:', JSON.stringify(deviceData, null, 2));
   const getDataInterval = useRef<typeof setInterval | null>(null);
 
   // Function to render characteristics for a given service

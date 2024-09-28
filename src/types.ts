@@ -287,6 +287,7 @@ export enum WitBleEventType {
   WitBleManagerStopScan = "WitBleManagerStopScan",
   WitBleManagerDiscoverPeripheral = "WitBleManagerDiscoverPeripheral",
   WitBleManagerDidUpdateValueForCharacteristic = "WitBleManagerDidUpdateValueForCharacteristic",
+  WitBleManagerDeviceDataOnRecord = "WitBleManagerDeviceDataOnRecord",
   WitBleManagerConnectPeripheral = "WitBleManagerConnectPeripheral",
   WitBleManagerDisconnectPeripheral = "WitBleManagerDisconnectPeripheral",
   /**
@@ -369,6 +370,11 @@ export interface WitBleManagerDidUpdateValueForCharacteristicEvent {
    * using something like [Buffer.from()](https://github.com/feross/buffer))
    */
   readonly value: number[];
+}
+
+export interface WitBleManagerDeviceDataOnRecordEvent {
+  readonly peripheral: string;
+  readonly deviceData: DeviceData;
 }
 
 /**

@@ -237,8 +237,14 @@ class Helper {
 }
 
 class DeviceDataObserver: NSObject, IBwt901bleRecordObserver {
+    var manager: WitBleManager
+    
+    public init(manager: WitBleManager) {
+        self.manager = manager
+    }
+    
     func onRecord(_ bwt901ble: Bwt901ble) {
-        
+        self.manager.onRecord(bwt901ble)
     }
 }
 
@@ -250,12 +256,13 @@ class Peripheral:Hashable {
     var sendCharacteristic:CBCharacteristic?
     var ble:BluetoothBLE?
     
-    init(peripheral: CBPeripheral, rssi: NSNumber? = nil, advertisementData: [String:Any]? = nil, sendCharacteristic: CBCharacteristic?) {
+    init(peripheral: CBPeripheral, rssi: NSNumber? = nil, advertisementData: [String:Any]? = nil, sendCharacteristic: CBCharacteristic?, bwt901bleRecordObserver: IBwt901bleRecordObserver) {
         self.instance = peripheral
         self.rssi = rssi
         self.advertisementData = advertisementData
         self.ble = self.toBluetoothBLE()
         self.bwt901ble = Bwt901ble(bluetoothBLE: ble)
+        self.bwt901ble?.recordObserverList.append(bwt901bleRecordObserver)
         self.sendCharacteristic = sendCharacteristic
     }
     

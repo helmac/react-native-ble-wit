@@ -23,11 +23,12 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {useNavigation} from '@react-navigation/native';
 
 import WitBleManager, {
-  BleDisconnectPeripheralEvent,
-  BleManagerDidUpdateValueForCharacteristicEvent,
-  BleScanCallbackType,
-  BleScanMatchMode,
-  BleScanMode,
+  WitBleDisconnectPeripheralEvent,
+  WitBleManagerDidUpdateValueForCharacteristicEvent,
+  WitBleScanCallbackType,
+  WitBleScanMatchMode,
+  WitBleScanMode,
+  WitBleManagerDeviceDataOnRecordEvent,
   Peripheral,
   PeripheralInfo,
   DeviceData,
@@ -81,9 +82,9 @@ const ScanDevicesScreen = () => {
           SECONDS_TO_SCAN_FOR,
           ALLOW_DUPLICATES,
           {
-            matchMode: BleScanMatchMode.Sticky,
-            scanMode: BleScanMode.LowLatency,
-            callbackType: BleScanCallbackType.AllMatches,
+            matchMode: WitBleScanMatchMode.Sticky,
+            scanMode: WitBleScanMode.LowLatency,
+            callbackType: WitBleScanCallbackType.AllMatches,
           },
         )
           .then(() => {
@@ -137,7 +138,7 @@ const ScanDevicesScreen = () => {
   };
 
   const handleDisconnectedPeripheral = (
-    event: BleDisconnectPeripheralEvent,
+    event: WitBleDisconnectPeripheralEvent,
   ) => {
     console.debug(
       `[handleDisconnectedPeripheral][${event.peripheral}] disconnected.`,
@@ -157,10 +158,23 @@ const ScanDevicesScreen = () => {
   };
 
   const handleUpdateValueForCharacteristic = (
-    data: BleManagerDidUpdateValueForCharacteristicEvent,
+    data: WitBleManagerDidUpdateValueForCharacteristicEvent,
+  ) => {
+    // console.debug(
+    //   `[handleUpdateValueForCharacteristic] received data from '${data.peripheral}' with characteristic='${data.characteristic}' and value='${data.value}'`,
+    // );
+    // console.log(
+    //   `[handleUpdateValueForCharacteristic] received data from '${data.peripheral}'`,
+    //   data.deviceData,
+    // );
+  };
+
+  const handleDeviceDataOnRecord = (
+    data: WitBleManagerDeviceDataOnRecordEvent,
   ) => {
     console.debug(
-      `[handleUpdateValueForCharacteristic] received data from '${data.peripheral}' with characteristic='${data.characteristic}' and value='${data.value}'`,
+      `[handleDeviceDataOnRecord] received data from '${data.peripheral}'`,
+      data,
     );
   };
 
@@ -417,13 +431,17 @@ const ScanDevicesScreen = () => {
         'WitBleManagerDisconnectPeripheral',
         handleDisconnectedPeripheral,
       ),
-      // bleManagerEmitter.addListener(
-      //   'WitBleManagerDidUpdateValueForCharacteristic',
-      //   handleUpdateValueForCharacteristic,
-      // ),
+      bleManagerEmitter.addListener(
+        'WitBleManagerDidUpdateValueForCharacteristic',
+        handleUpdateValueForCharacteristic,
+      ),
       bleManagerEmitter.addListener(
         'WitBleManagerConnectPeripheral',
         handleConnectPeripheral,
+      ),
+      bleManagerEmitter.addListener(
+        'WitBleManagerDeviceDataOnRecord',
+        handleDeviceDataOnRecord,
       ),
     ];
 
