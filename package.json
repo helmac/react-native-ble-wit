@@ -1,6 +1,6 @@
 {
   "name": "react-native-ble-wit",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A WIT BLE module for react native.",
   "repository": {
     "type": "git",
